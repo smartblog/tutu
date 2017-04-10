@@ -6,13 +6,26 @@
 </p>
 
 <p>
-  <strong>List Stations in route:</strong>
+  <strong>Stations in route:</strong>
   <% if @route.railway_stations.empty? %>
     List empty
   <% else %>
     <ul>
     <% @route.railway_stations.each do |station| %>
     <li><%= station.title %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</p>
+
+<p>
+  <strong>Trains with current route:</strong>
+  <% if @route.trains.empty? %>
+    List empty
+  <% else %>
+    <ul>
+    <% @route.trains.each do |train| %>
+    <li><%= train.number %></li>
     <% end %>
     </ul>
   <% end %>
