@@ -16,6 +16,11 @@
     <%= f.text_field :number %>
   </div>
 
+  <div class="field">
+    <%= f.label :current_station, "Current Station" %>
+    <%= f.collection_select :current_station_id, RailwayStation.all, :id, :title %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

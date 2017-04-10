@@ -5,5 +5,14 @@
   <%= @train.number %>
 </p>
 
+<p>
+  <strong>Current Station:</strong>
+  <% if @train.current_station.present? %>
+    <%= @train.current_station.title %>
+  <% else %>
+    Not station
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
