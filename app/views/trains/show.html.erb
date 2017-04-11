@@ -23,5 +23,18 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Carriages:</strong>
+  <% if @train.carriages.empty? %>
+    List empty
+  <% else %>
+    <ul>
+    <% @train.carriages.each do |carriage| %>
+    <li><%= carriage.carriage_type %>, Up: <%= carriage.count_up %>, Down: <%= carriage.count_down %></li>
+    <% end %>
+    </ul>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
