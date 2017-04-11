@@ -1,35 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @route.title %>
+  <strong>Type:</strong>
+  <%= @carriage.carriage_type %>
 </p>
 
 <p>
-  <strong>Stations in route:</strong>
-  <% if @route.railway_stations.empty? %>
-    List empty
+  <strong>Current Train:</strong>
+  <% if @carriage.current_train.present? %>
+    <%= @carriage.current_train.number %>
   <% else %>
-    <ul>
-    <% @route.railway_stations.each do |station| %>
-    <li><%= station.title %></li>
-    <% end %>
-    </ul>
+    Not train
   <% end %>
 </p>
 
 <p>
-  <strong>Trains with current route:</strong>
-  <% if @route.trains.empty? %>
-    List empty
-  <% else %>
-    <ul>
-    <% @route.trains.each do |train| %>
-    <li><%= train.number %></li>
-    <% end %>
-    </ul>
-  <% end %>
+  <strong>Count Up Places:</strong>
+  <%= @carriage.count_up %>
 </p>
 
-<%= link_to 'Edit', edit_route_path(@route) %> |
-<%= link_to 'Back', routes_path %>
+<p>
+  <strong>Count Down Places:</strong>
+  <%= @carriage.count_down %>
+</p>
+
+<%= link_to 'Edit', edit_carriage_path(@carriage) %> |
+<%= link_to 'Back', carriages_path %>
