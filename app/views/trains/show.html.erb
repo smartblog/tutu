@@ -25,20 +25,7 @@
 
 <p>
   <strong>Carriages:</strong><br/>
-  <% carriages_data = {plac: 0, plac_up: 0, plac_down: 0, coupe: 0, coupe_up: 0, coupe_down: 0 } %>
-  <% @train.carriages.each do |carriage| %>
-    <% if carriage.carriage_type == "Coupe" %>
-      <% carriages_data[:coupe] += 1 %>
-      <% carriages_data[:coupe_up] += carriage.count_up %>
-      <% carriages_data[:coupe_down] += carriage.count_down %>
-    <% elsif carriage.carriage_type == "Plac" %>
-      <% carriages_data[:plac] += 1 %>
-      <% carriages_data[:plac_up] += carriage.count_up %>
-      <% carriages_data[:plac_down] += carriage.count_down %>
-    <% end %>
-  <% end %>
-  Coupe: <%= carriages_data[:coupe] %> ( Up: <%= carriages_data[:coupe_up] %>, Down: <%= carriages_data[:coupe_down] %> )<br/>
-  Plac: <%= carriages_data[:plac] %> ( Up: <%= carriages_data[:plac_up] %>, Down: <%= carriages_data[:plac_down] %> )
+  <%= @train.calculate_carriages %>
 </p>
 
 

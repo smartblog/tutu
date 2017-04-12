@@ -7,8 +7,8 @@
 
 <p>
   <strong>Current Train:</strong>
-  <% if @carriage.current_train.present? %>
-    <%= @carriage.current_train.number %>
+  <% if @carriage.train.present? %>
+    <%= @carriage.train.number %>
   <% else %>
     Not train
   <% end %>

@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :current_train, "Train" %>
-    <%= f.collection_select :current_train_id, Train.all, :id, :number %>
+    <%= f.label :train, "Train" %>
+    <%= f.collection_select :train_id, Train.all, :id, :number %>
   </div>
 
   <div class="field">
