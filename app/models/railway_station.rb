@@ -4,4 +4,8 @@ class RailwayStation < ApplicationRecord
   has_many :routes, through: :railway_stations_routes
 
   validates :title, presence: true
+
+  def update_order_number(route, number)
+    self.railway_stations_routes.where(route_id: route).update(order_number: number)
+  end
 end
