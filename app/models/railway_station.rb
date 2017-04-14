@@ -5,6 +5,8 @@ class RailwayStation < ApplicationRecord
 
   validates :title, presence: true
 
+  scope :sort_number, -> { order('railway_stations_routes.order_number') }
+
   def update_order_number(route, number)
     self.railway_stations_routes.where(route_id: route).update(order_number: number)
   end
