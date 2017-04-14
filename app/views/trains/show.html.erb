@@ -23,5 +23,11 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Carriages:</strong><br/>
+  <%= @train.calculate_carriages %>
+</p>
+
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

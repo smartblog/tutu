@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @carriage.carriage_type %>
+</p>
+
+<p>
+  <strong>Current Train:</strong>
+  <% if @carriage.train.present? %>
+    <%= @carriage.train.number %>
+  <% else %>
+    Not train
+  <% end %>
+</p>
+
+<p>
+  <strong>Count Up Places:</strong>
+  <%= @carriage.count_up %>
+</p>
+
+<p>
+  <strong>Count Down Places:</strong>
+  <%= @carriage.count_down %>
+</p>
+
+<%= link_to 'Edit', edit_carriage_path(@carriage) %> |
+<%= link_to 'Back', carriages_path %>
