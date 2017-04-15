@@ -20,7 +20,7 @@ class CarriagesController < ApplicationController
 
     respond_to do |format|
       if @carriage.save
-        format.html { redirect_to @carriage, notice: 'Carriage was successfully created.' }
+        format.html { redirect_to carriage_path(@carriage), notice: 'Carriage was successfully created.' }
       else
         format.html { render :new }
       end
@@ -30,7 +30,7 @@ class CarriagesController < ApplicationController
   def update
     respond_to do |format|
       if @carriage.update(carriage_params)
-        format.html { redirect_to @carriage, notice: 'Carriage was successfully updated.' }
+        format.html { redirect_to carriage_path(@carriage), notice: 'Carriage was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -50,7 +50,7 @@ class CarriagesController < ApplicationController
     end
 
     def carriage_params
-      params.require(:carriage).permit(:carriage_type, :count_up, :count_down, :train_id)
+      params.require(:carriage).permit(:type, :top_seats, :bottom_seats, :train_id)
     end
 
 end

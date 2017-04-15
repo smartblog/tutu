@@ -7,11 +7,11 @@ class Train < ActiveRecord::Base
   def calculate_carriages
     @data = {plac: 0, plac_up: 0, plac_down: 0, coupe: 0, coupe_up: 0, coupe_down: 0 }
     self.carriages.each do |carriage|
-     if carriage.carriage_type == "Coupe"
+     if carriage.class == CoupeCarriage
        @data[:coupe] += 1
-       @data[:coupe_up] += carriage.count_up
-       @data[:coupe_down] += carriage.count_down
-     elsif carriage.carriage_type == "Plac"
+       @data[:coupe_up] += carriage.top_seats
+       @data[:coupe_down] += carriage.bottom_seats
+     elsif carriage.class == EconomyCarriage
        @data[:plac] += 1
        @data[:plac_up] += carriage.count_up
        @data[:plac_down] += carriage.count_down

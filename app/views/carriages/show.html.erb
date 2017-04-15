@@ -2,7 +2,7 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @carriage.carriage_type %>
+  <%= @carriage.class %>
 </p>
 
 <p>
@@ -12,16 +12,6 @@
   <% else %>
     Not train
   <% end %>
-</p>
-
-<p>
-  <strong>Count Up Places:</strong>
-  <%= @carriage.count_up %>
-</p>
-
-<p>
-  <strong>Count Down Places:</strong>
-  <%= @carriage.count_down %>
 </p>
 
 <%= link_to 'Edit', edit_carriage_path(@carriage) %> |
