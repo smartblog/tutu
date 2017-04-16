@@ -17,7 +17,7 @@ class CarriagesController < ApplicationController
 
   def create
     @carriage = Carriage.new(carriage_params)
-
+    
     respond_to do |format|
       if @carriage.save
         format.html { redirect_to carriage_path(@carriage), notice: 'Carriage was successfully created.' }
@@ -50,7 +50,6 @@ class CarriagesController < ApplicationController
     end
 
     def carriage_params
-      params.require(:carriage).permit(:type, :top_seats, :bottom_seats, :train_id)
+      params.require(:carriage).permit(:type, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats, :seat_places, :train_id)
     end
-
 end

@@ -12,13 +12,28 @@
   </div>
 
   <div class="field">
-    <%= f.label :top_seats, "Count Up places" %>
+    <%= f.label :top_seats, "Count Top places" %>
     <%= f.select :top_seats, ((0..10).map {|i| [i,i] }) %>
   </div>
 
   <div class="field">
-    <%= f.label :bottom_seats, "Count Up places" %>
+    <%= f.label :bottom_seats, "Count Bottom places" %>
     <%= f.select :bottom_seats, ((0..10).map {|i| [i,i] }) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :side_top_seats, "Count Side Top places" %>
+    <%= f.select :side_top_seats, ((0..10).map {|i| [i,i] }) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :side_bottom_seats, "Count Side Bottom places" %>
+    <%= f.select :side_bottom_seats, ((0..10).map {|i| [i,i] }) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :seat_places, "Count Seat places" %>
+    <%= f.select :seat_places, ((0..10).map {|i| [i,i] }) %>
   </div>
 
   <div class="actions">

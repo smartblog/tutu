@@ -24,8 +24,28 @@
 </p>
 
 <p>
-  <strong>Carriages:</strong><br/>
-  <%= @train.calculate_carriages %>
+  <strong>Carriages:</strong>
+  <% if @train.carriages.empty? %>
+    List empty
+  <% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Number</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @train.carriages.sort_number.each do |carriage| %>
+        <tr>
+          <td><%= link_to "#{carriage.number}", carriage_path(carriage)%></td>
+          <td><%= carriage.type %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
 </p>
 
 
