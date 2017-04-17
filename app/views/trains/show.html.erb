@@ -48,8 +48,10 @@
   <% end %>
 </p>
 
+<p>
+<strong>Total top seats places in CoupeCarriages:</strong>
 <%= @train.calculate_places('CoupeCarriage', :top_seats) %>
-
+</p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>
