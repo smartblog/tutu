@@ -2,19 +2,21 @@ class Carriage < ActiveRecord::Base
   belongs_to :train
 
   validates :number, presence: true
-  before_validation :set_number
+  validates :number, uniqueness: { scope: :train_id }
+  before_validation :set_number, unless: :train?
 
-  scope :sort_number, -> { order('carriages.number') }
+  scope :sort_number, -> { order(:number) }
+
+  def train?
+    !!train
+  end
 
   def set_number
-    return unless train
-    if train.carriages.size == 0
+    if train.carriages.size.zero?
       self.number = 1
     else
-      self.number = 1
-      while train.carriages.find_by(number: self.number) != nil do
-        self.number += 1
-      end
+      self.number = 2
+      self.number += 1 while train.carriages.find_by(number: number).nil?
     end
   end
 end
