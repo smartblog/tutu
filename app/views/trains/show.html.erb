@@ -37,7 +37,7 @@
     </thead>
 
     <tbody>
-      <% @train.carriages.sort_number.each do |carriage| %>
+      <% @train.sort_carriages.each do |carriage| %>
         <tr>
           <td><%= link_to "#{carriage.number}", carriage_path(carriage)%></td>
           <td><%= carriage.type %></td>
@@ -47,6 +47,8 @@
   </table>
   <% end %>
 </p>
+
+<%= @train.calculate_places('CoupeCarriage', :top_seats) %>
 
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
