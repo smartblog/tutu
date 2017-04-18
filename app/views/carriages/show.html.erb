@@ -15,12 +15,10 @@
 </p>
 
 <p>
-  <strong>Places:</strong>
-  Top Seats: <%= @carriage.top_seats %> |
-  Bottom Seats: <%= @carriage.bottom_seats %> |
-  Side Top: <%= @carriage.side_top_seats %> |
-  Side Bottom: <%= @carriage.side_bottom_seats %> |
-  Seat Places: <%= @carriage.seat_places %>
+  <strong>Places:</strong><br/>
+  <% @carriage.places.each do |place, count| %>
+  <%= "#{place} = #{count}" %> <br/>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_carriage_path(@carriage) %> |

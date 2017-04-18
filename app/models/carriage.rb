@@ -3,20 +3,15 @@ class Carriage < ActiveRecord::Base
 
   validates :number, presence: true
   validates :number, uniqueness: { scope: :train_id }
-  before_validation :set_number, unless: :train?
+  before_validation :set_number
 
   scope :sort_number, -> { order(:number) }
 
-  def train?
-    !!train
-  end
-
   def set_number
-    if train.carriages.size.zero?
+    if train.carriages.maximum(:number).nil?
       self.number = 1
     else
-      self.number = 2
-      self.number += 1 while train.carriages.find_by(number: number).nil?
+      self.number = train.carriages.maximum(:number) + 1
     end
   end
 end
