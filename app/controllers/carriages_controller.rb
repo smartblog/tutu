@@ -17,31 +17,24 @@ class CarriagesController < ApplicationController
 
   def create
     @carriage = Carriage.new(carriage_params)
-
-    respond_to do |format|
       if @carriage.save
-        format.html { redirect_to @carriage, notice: 'Carriage was successfully created.' }
+        redirect_to carriage_path(@carriage), notice: 'Carriage was successfully created.'
       else
-        format.html { render :new }
+        render :new
       end
-    end
   end
 
   def update
-    respond_to do |format|
       if @carriage.update(carriage_params)
-        format.html { redirect_to @carriage, notice: 'Carriage was successfully updated.' }
+        redirect_to carriage_path(@carriage), notice: 'Carriage was successfully updated.'
       else
-        format.html { render :edit }
+        render :edit
       end
-    end
   end
 
   def destroy
     @carriage.destroy
-    respond_to do |format|
-      format.html { redirect_to carriages_url, notice: 'Carriage was successfully destroyed.' }
-    end
+    redirect_to carriages_url, notice: 'Carriage was successfully destroyed.'
   end
 
   private
@@ -50,7 +43,6 @@ class CarriagesController < ApplicationController
     end
 
     def carriage_params
-      params.require(:carriage).permit(:carriage_type, :count_up, :count_down, :train_id)
+      params.require(:carriage).permit(:type, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats, :seat_places, :train_id)
     end
-
 end

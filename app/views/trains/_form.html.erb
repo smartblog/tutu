@@ -16,6 +16,11 @@
     <%= f.collection_select :route_id, Route.all, :id, :title %>
   </div>
 
+  <div class="field">
+    <%= f.label :rev_carriages_sort, "Reverse Sort Carriages" %>
+    <%= f.check_box :rev_carriages_sort %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

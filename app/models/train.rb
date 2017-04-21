@@ -4,20 +4,12 @@ class Train < ActiveRecord::Base
   has_many :tickets
   has_many :carriages
 
-  def calculate_carriages
-    @data = {plac: 0, plac_up: 0, plac_down: 0, coupe: 0, coupe_up: 0, coupe_down: 0 }
-    self.carriages.each do |carriage|
-     if carriage.carriage_type == "Coupe"
-       @data[:coupe] += 1
-       @data[:coupe_up] += carriage.count_up
-       @data[:coupe_down] += carriage.count_down
-     elsif carriage.carriage_type == "Plac"
-       @data[:plac] += 1
-       @data[:plac_up] += carriage.count_up
-       @data[:plac_down] += carriage.count_down
-     end
-    end
-    @data
+  def sort_carriages
+    carriages.order(number: rev_carriages_sort ? :desc : :asc)
+  end
+
+  def calculate_places(carriage_type, places)
+    carriages.where(type: carriage_type).sum(places)
   end
 
 end
