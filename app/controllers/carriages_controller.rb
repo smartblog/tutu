@@ -1,5 +1,6 @@
 class CarriagesController < ApplicationController
   before_action :set_carriage, only: [:show, :edit, :update, :destroy]
+  before_action :set_train, only: [:new, :create]
 
   def index
     @carriages = Carriage.all
@@ -16,9 +17,9 @@ class CarriagesController < ApplicationController
   end
 
   def create
-    @carriage = Carriage.new(carriage_params)
+    @carriage = @train.carriages.new(carriage_params)
       if @carriage.save
-        redirect_to carriage_path(@carriage), notice: 'Carriage was successfully created.'
+        redirect_to @train, notice: 'Carriage was successfully created.'
       else
         render :new
       end
@@ -37,9 +38,13 @@ class CarriagesController < ApplicationController
     redirect_to carriages_url, notice: 'Carriage was successfully destroyed.'
   end
 
-  private
+  protected
     def set_carriage
       @carriage = Carriage.find(params[:id])
+    end
+
+    def set_train
+      @train = Train.find(params[:train_id])
     end
 
     def carriage_params

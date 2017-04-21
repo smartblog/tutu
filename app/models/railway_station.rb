@@ -5,9 +5,32 @@ class RailwayStation < ApplicationRecord
 
   validates :title, presence: true
 
-  scope :sort_number, -> { order('railway_stations_routes.order_number') }
+  scope :ordered, -> { joins(:railway_stations_routes).order("railway_stations_routes.position").uniq }
 
-  def update_order_number(route, number)
-    self.railway_stations_routes.where(route_id: route).update(order_number: number)
+  # def update_order_number(route, number)
+  #   self.railway_stations_routes.where(route_id: route).update(order_number: number)
+  # end
+
+  def update_position(route, position, arrive_time, departure_time)
+    station_route = station_route(route)
+    station_route.update(position: position, arrive_time: arrive_time, departure_time: departure_time) if station_route
+  end
+
+  def position_in(route)
+    station_route(route).try(:position)
+  end
+
+  def arrive_time_in(route)
+    station_route(route).try(:arrive_time)
+  end
+
+  def departure_time_in(route)
+    station_route(route).try(:departure_time)
+  end
+
+  protected
+
+  def station_route(route)
+    @station_route ||= railway_stations_routes.where(route: route).first
   end
 end
