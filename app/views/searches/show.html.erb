@@ -1,1 +1,26 @@
 <p>Поиск билетов</p>
+
+<table>
+  <tbody>
+      <tr>
+        <%= form_tag search_path do %>
+        <td>
+          <%= label :begin_station_id, "Begin Station" %>
+          <%= collection_select :stations, :start_station_id, RailwayStation.all, :id, :title %>
+       </td>
+        <td>
+          <%= label :end_station_id, "End Station" %>
+          <%= collection_select :stations, :end_station_id, RailwayStation.all, :id, :title %>
+          <%= submit_tag "Поиск" %>
+        </td>
+        <% end %>
+      </tr>
+  </tbody>
+</table>
+
+<p> Search Result </p>
+<% if @trains %>
+  <% @trains.each do |train| %>
+    <p>Train: <%= train.number %> | <%= train.route.title %></p>
+  <% end %>
+<% end %>

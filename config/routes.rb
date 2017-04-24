@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :routes
   resources :carriages
 
-  resource :search
+  resource :search, only: [:show, :create]
 
   get 'welcome/index'
 
