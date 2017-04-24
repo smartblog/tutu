@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :routes
   resources :carriages
 
+  resource :search
+
   get 'welcome/index'
 
   root 'welcome#index'
