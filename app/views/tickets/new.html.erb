@@ -11,8 +11,8 @@
     <%= f.text_field :passport_number %>
   </p>
 
-  <%= f.hidden_field :train_id %>
-  <%= f.hidden_field :start_station_id, @start_station.id %>
-  <%= f.hidden_field :end_station_id, @end_station.id %>
+  <%= f.hidden_field :train_id, value: @train.id %>
+  <%= f.hidden_field :begin_station_id, value: @begin.id %>
+  <%= f.hidden_field :end_station_id, value: @end.id %>
   <%= f.submit "Buy Ticket" %>
 <% end %>

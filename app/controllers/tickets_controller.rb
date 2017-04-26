@@ -1,6 +1,9 @@
 class TicketsController < ApplicationController
   def new
-    @ticket = RailwayStation.new
+    @ticket = Ticket.new
+    @train = Train.find(params[:train_id])
+    @begin = RailwayStation.find(params[:start_station_id])
+    @end = RailwayStation.find(params[:end_station_id])
   end
 
   def show
@@ -16,16 +19,9 @@ class TicketsController < ApplicationController
     end
   end
 
-  def purchase
-    @start_station = RailwayStation.find(params[:start_station_id])
-    @end_station = RailwayStation.find(params[:end_station_id])
-    @ticket = Ticket.new
-    render :new
-  end
-
   private
 
   def ticket_params
-    params.require(:ticket).permit(:passenger_fio, :passport_number, :start_station_id, :end_station_id, :train_id)
+    params.require(:ticket).permit(:passenger_fio, :passport_number, :begin_station_id, :end_station_id, :train_id)
   end
 end

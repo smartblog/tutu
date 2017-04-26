@@ -11,8 +11,6 @@ Rails.application.routes.draw do
 
   resource :search, only: [:show, :create]
 
-  post '/tickets/purchase', to: 'tickets#purchase', as: :ticket_purchase
-
   get 'welcome/index'
 
   root 'welcome#index'
