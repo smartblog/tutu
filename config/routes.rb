@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   end
   resources :routes
   resources :carriages
+  resources :tickets
 
   resource :search, only: [:show, :create]
+
+  post '/tickets/purchase', to: 'tickets#purchase', as: :ticket_purchase
 
   get 'welcome/index'
 
