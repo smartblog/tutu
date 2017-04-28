@@ -1,4 +1,4 @@
-<p>Поиск билетов</p>
+<p>Find Tickets</p>
 
 <table>
   <tbody>
@@ -11,7 +11,7 @@
         <td>
           <%= label :end_station_id, "End Station" %>
           <%= collection_select :stations, :end_station_id, RailwayStation.all, :id, :title %>
-          <%= submit_tag "Поиск" %>
+          <%= submit_tag "Search" %>
         </td>
         <% end %>
       </tr>
