@@ -18,19 +18,19 @@ class CarriagesController < ApplicationController
 
   def create
     @carriage = @train.carriages.new(carriage_params)
-      if @carriage.save
-        redirect_to @train, notice: 'Carriage was successfully created.'
-      else
-        render :new
-      end
+    if @carriage.save
+      redirect_to @train, notice: 'Carriage was successfully created.'
+    else
+      render :new
+    end
   end
 
   def update
-      if @carriage.update(carriage_params)
-        redirect_to carriage_path(@carriage), notice: 'Carriage was successfully updated.'
-      else
-        render :edit
-      end
+    if @carriage.update(carriage_params)
+      redirect_to carriage_path(@carriage), notice: 'Carriage was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
