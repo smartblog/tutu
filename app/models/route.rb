@@ -8,10 +8,6 @@ class Route < ActiveRecord::Base
 
   before_validation :set_title
 
-  def self.search_trains(start_station, end_station)
-    Train.station_in_route(start_station) && Train.station_in_route(end_station)
-  end
-
   def start_time
     railway_stations.first.departure_time_in(self)
   end
