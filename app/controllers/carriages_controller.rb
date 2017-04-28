@@ -38,7 +38,7 @@ class CarriagesController < ApplicationController
     redirect_to carriages_url, notice: 'Carriage was successfully destroyed.'
   end
 
-  protected
+  private
     def set_carriage
       @carriage = Carriage.find(params[:id])
     end
