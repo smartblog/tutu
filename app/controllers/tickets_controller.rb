@@ -1,9 +1,6 @@
 class TicketsController < ApplicationController
   def new
-    @ticket = Ticket.new
-    @train = Train.find(params[:train_id])
-    @begin = RailwayStation.find(params[:start_station_id])
-    @end = RailwayStation.find(params[:end_station_id])
+    @ticket = Ticket.ne
   end
 
   def show
