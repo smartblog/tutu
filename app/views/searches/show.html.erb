@@ -21,14 +21,9 @@
 <p> Search Result </p>
 <% if @trains %>
   <% @trains.each do |train| %>
-    <%= form_tag new_ticket_path(train_id: train.id), method: :get do %>
     <p>
     Train: <%= train.number %> | <%= train.route.title %> | <%= train.route.start_time.strftime("%H:%M") %> | <%= train.route.end_time.strftime("%H:%M") %>
-    <%= hidden_field_tag :train_id, train.id %>
-    <%= hidden_field_tag :start_station_id, train.route.railway_stations.ordered.first.id %>
-    <%= hidden_field_tag :end_station_id, train.route.railway_stations.ordered.last.id %>
-    <%= submit_tag 'Buy Ticket' %>
+    <%= link_to 'Buy Ticket', new_ticket_path(train_id: train.id, start_station_id: @start_station, end_station_id: @end_station) %>
     </p>
-    <% end %>
   <% end %>
 <% end %>
