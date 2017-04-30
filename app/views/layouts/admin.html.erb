@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tutu - Administrator</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p id="notice" class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <% if user_signed_in? %>
+      <%= link_to 'Exit', destroy_user_session_path, method: :delete %>
+      <p> Account: <%= current_user.email %> </p>
+    <% else %>
+      <%= link_to 'Login', new_user_session_path %>
+    <% end %>
+
+    <%= yield %>
+  </body>
+
+  <footer>
+    <p>(с) 2017 Boris Stukov. Education Project in online-school <%= link_to 'Thinknetica', 'http://thinknetica.com' %></p>
+  </footer>
+</html>

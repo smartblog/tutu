@@ -1,4 +1,4 @@
-class CarriagesController < ApplicationController
+class Admin::CarriagesController < Admin::BaseController
   before_action :set_carriage, only: [:show, :edit, :update, :destroy]
   before_action :set_train, only: [:new, :create]
 
@@ -39,7 +39,7 @@ class CarriagesController < ApplicationController
   end
 
   private
-  
+
   def set_carriage
     @carriage = Carriage.find(params[:id])
   end
