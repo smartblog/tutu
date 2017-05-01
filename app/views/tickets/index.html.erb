@@ -1,0 +1,29 @@
+<h1>Tickets of <%= current_user.email %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>FIO</th>
+      <th>Passport</th>
+      <th>Begin station</th>
+      <th>End station</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.passenger_fio %></td>
+        <td><%= ticket.passport_number %></td>
+        <td><%= ticket.begin_station.title %></td>
+        <td><%= ticket.end_station.title %></td>
+        <td><%= link_to 'Show', ticket_path(ticket) %></td>
+        <td><%= link_to 'Destroy', ticket_path(ticket), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'Back to Main Page', welcome_index_path %>
