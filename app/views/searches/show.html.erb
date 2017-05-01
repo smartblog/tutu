@@ -1,0 +1,29 @@
+<p>Find Tickets</p>
+
+<table>
+  <tbody>
+      <tr>
+        <%= form_tag search_path do %>
+        <td>
+          <%= label :begin_station_id, "Begin Station" %>
+          <%= collection_select :stations, :start_station_id, RailwayStation.all, :id, :title %>
+       </td>
+        <td>
+          <%= label :end_station_id, "End Station" %>
+          <%= collection_select :stations, :end_station_id, RailwayStation.all, :id, :title %>
+          <%= submit_tag "Search" %>
+        </td>
+        <% end %>
+      </tr>
+  </tbody>
+</table>
+
+<p> Search Result </p>
+<% if @trains %>
+  <% @trains.each do |train| %>
+    <p>
+    Train: <%= train.number %> | <%= train.route.title %> | <%= train.route.start_time.strftime("%H:%M") %> | <%= train.route.end_time.strftime("%H:%M") %>
+    <%= link_to 'Buy Ticket', new_ticket_path(train_id: train.id, start_station_id: @start_station, end_station_id: @end_station) %>
+    </p>
+  <% end %>
+<% end %>

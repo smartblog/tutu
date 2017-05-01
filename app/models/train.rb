@@ -4,6 +4,8 @@ class Train < ActiveRecord::Base
   has_many :tickets
   has_many :carriages
 
+  scope :station_in_route, ->(station) { joins(route: :railway_stations).where("railway_station_id = ?", station) }
+
   def sort_carriages
     carriages.order(number: rev_carriages_sort ? :desc : :asc)
   end

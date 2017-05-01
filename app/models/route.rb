@@ -8,6 +8,14 @@ class Route < ActiveRecord::Base
 
   before_validation :set_title
 
+  def start_time
+    railway_stations.first.departure_time_in(self)
+  end
+
+  def end_time
+    railway_stations.last.arrive_time_in(self)
+  end
+
   private
 
   def set_title
