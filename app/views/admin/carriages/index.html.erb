@@ -18,9 +18,9 @@
         <td><%= carriage.class %></td>
         <td><%= carriage.train.number %></td>
         <td><%= carriage.number %></td>
-        <td><%= link_to 'Show', carriage_path(carriage) %></td>
-        <td><%= link_to 'Edit', edit_carriage_path(carriage) %></td>
-        <td><%= link_to 'Destroy', carriage_path(carriage), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_carriage_path(carriage) %></td>
+        <td><%= link_to 'Edit', edit_admin_carriage_path(carriage) %></td>
+        <td><%= link_to 'Destroy', admin_carriage_path(carriage), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,6 +28,6 @@
 
 <br>
 
-<%= link_to 'New Carriage', new_carriage_path %> <br/>
+<%= link_to 'New Carriage', new_admin_carriage_path %> <br/>
 
 <%= link_to 'Back to Main Page', welcome_index_path %>
