@@ -13,7 +13,7 @@ class Admin::TicketsController < Admin::BaseController
   end
 
   def create
-    @ticket = current_user.tickets.new(ticket_params)
+    @ticket = Ticket.new(ticket_params)
     if @ticket.save
       redirect_to ticket_path(@ticket)
     else
@@ -41,6 +41,6 @@ class Admin::TicketsController < Admin::BaseController
   end
 
   def ticket_params
-    params.require(:ticket).permit(:passenger_fio, :passport_number, :begin_station_id, :end_station_id, :train_id)
+    params.require(:ticket).permit(:user_id, :passenger_fio, :passport_number, :begin_station_id, :end_station_id, :train_id)
   end
 end
