@@ -1,10 +1,38 @@
 ru:
+  layouts:
+    application:
+      admin_panel: 'Панель администратора'
+      sign_out: 'Выйти'
+      login: 'Войти'
+    admin:
+      admin_panel: 'Панель администратора'
+      sign_out: 'Выйти'
   common:
+    show: 'Показать'
     back: 'Назад'
+    edit: 'Изменить'
+    destroy: 'Удалить'
     errors: 'При заполнении формы возникли ошибки'
   admin:
     railway_stations:
       new:
         title: 'Новая станция'
+      edit:
+        title: 'Редактирование станции'
+      show:
+        title: 'Станция'
+      index:
+        title: 'Список станций'
+        table_title: 'Название станции'
+        new: 'Новая станция'
+        back: 'Вернуться в меню'
       form:
         submit: '%{action} станцию'
+  welcome:
+    index:
+      title: 'Главное меню'
+      list_stations: 'Станции'
+      list_trains: 'Поезда'
+      list_routes: 'Маршруты'
+      list_carriages: 'Вагоны'
+      list_tickets: 'Билеты'
