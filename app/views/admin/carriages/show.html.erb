@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @carriage.class %>
+</p>
+
+<p>
+  <strong>Current Train:</strong>
+  <% if @carriage.train.present? %>
+    <%= @carriage.train.number %>
+  <% else %>
+    Not train
+  <% end %>
+</p>
+
+<p>
+  <strong>Places:</strong><br/>
+  <% @carriage.places.each do |place, count| %>
+  <%= "#{place} = #{count}" %> <br/>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_admin_carriage_path(@carriage) %> |
+<%= link_to 'Back', admin_carriages_path %>

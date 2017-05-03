@@ -1,0 +1,35 @@
+<%= form_for [:admin, ticket] do |f| %>
+  <%= render 'common/errors', resource: @ticket %>
+
+  <p>
+    <%= f.label :user_id, "User:" %>
+    <%= f.collection_select :user_id, User.all, :id, :email %>
+  </p>
+
+  <p>
+    <%= f.label :train_id, "Train:" %>
+    <%= f.collection_select :train_id, Train.all, :id, :number %>
+  </p>
+
+  <p>
+    <%= f.label :begin_station_id, "Begin Station:" %>
+    <%= f.collection_select :begin_station_id, RailwayStation.all, :id, :title %>
+  </p>
+
+  <p>
+    <%= f.label :end_station_id, "End Station:" %>
+    <%= f.collection_select :end_station_id, RailwayStation.all, :id, :title %>
+  </p>
+
+  <p>
+    <%= f.label :passenger_fio, "Passenger FIO:" %>
+    <%= f.text_field :passenger_fio %>
+  </p>
+
+  <p>
+    <%= f.label :passport_number, "Passport:" %>
+    <%= f.text_field :passport_number %>
+  </p>
+  
+  <%= f.submit "#{ticket.new_record? ? 'Создать' : 'Изменить'}" %>
+<% end %>

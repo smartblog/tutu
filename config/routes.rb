@@ -1,16 +1,23 @@
 Rails.application.routes.draw do
-  resources :trains do
-    resources :carriages, shallow: true
-  end
-  resources :railway_stations do
-    patch :update_position, on: :member
-    patch :update_times, on: :member
-  end
-  resources :routes
-  resources :carriages
-  resources :tickets
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
+  resources :tickets
   resource :search, only: [:show, :create]
+
+  namespace :admin do
+    resources :railway_stations do
+      patch :update_position, on: :member
+      patch :update_times, on: :member
+    end
+
+    resources :trains do
+      resources :carriages, shallow: true
+    end
+
+    resources :routes
+    resources :carriages
+    resources :tickets
+  end
 
   get 'welcome/index'
 
