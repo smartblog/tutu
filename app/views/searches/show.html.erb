@@ -1,4 +1,20 @@
-<p>Find Tickets</p>
+<h1>Find Tickets</h1>
+
+<div class="row">
+  <%= form_tag search_path do %>
+    <div class="col-md-4">
+      <%= label :begin_station_id, "Begin Station" %>
+      <%= select_tag :start_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title), class: "form-control" %>
+    </div>
+    <div class="col-md-4">
+      <%= label :end_station_id, "End Station" %>
+      <%= collection_select :stations, :end_station_id, RailwayStation.all, :id, :title %>
+    </div>
+    <div class="col-md-4">
+      <%= submit_tag "Search" %>
+    </div>
+  <% end %>
+</div>
 
 <table>
   <tbody>
