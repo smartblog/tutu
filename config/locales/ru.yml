@@ -39,9 +39,28 @@ ru:
         title: 'Список поездов'
         table_number: 'Номер поезда'
         new: 'Новый поезд'
-        back: 'Вернуться в меню'
       form:
         submit: '%{action} поезд'
+    routes:
+      new:
+        title: 'Новый маршрут'
+      edit:
+        title: 'Редактирование маршрута'
+      show:
+        title: 'Маршрут'
+        stations: 'Список станций в маршруте'
+        trains: 'Список поездов с маршрутом'
+        empty_stations: 'Список станций пуст'
+        table_title_station: 'Название станции'
+        table_position: 'Позиция'
+        table_arrive: 'Время прибытия'
+        table_departure: 'Время убытия'
+      index:
+        title: 'Список маршрутов'
+        table_title: 'Название маршрута'
+        new: 'Новый маршрут'
+      form:
+        submit: '%{action} маршрут'
   welcome:
     index:
       title: 'Главное меню'

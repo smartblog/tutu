@@ -11,6 +11,9 @@ ru:
         current_station: 'Текущая станция'
         route: 'Маршрут'
         rev_carriages_sort: 'Сортировка вагонов с конца'
+      route:
+        title: 'Название маршрута'
+        railway_station_ids: 'Список станций'
     errors:
       messages:
         blank: 'не может быть пустым'
