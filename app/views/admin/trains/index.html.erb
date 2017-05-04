@@ -1,9 +1,9 @@
-<h1>Trains</h1>
+<h1><%= t('.title') %></h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Number</th>
+      <th><%= t('.table_number') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,6 +17,5 @@
 
 <br>
 
-<%= link_to 'New Train', new_admin_train_path %> <br/>
-
-<%= link_to 'Back to Main Page', welcome_index_path %>
+<p><%= link_to t('.new'), new_admin_train_path %>  |
+<%= link_to t('common.back'), welcome_index_path %> </p>

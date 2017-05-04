@@ -28,6 +28,20 @@ ru:
         back: 'Вернуться в меню'
       form:
         submit: '%{action} станцию'
+    trains:
+      new:
+        title: 'Новый поезд'
+      edit:
+        title: 'Редактирование поезда'
+      show:
+        title: 'Поезд'
+      index:
+        title: 'Список поездов'
+        table_number: 'Номер поезда'
+        new: 'Новый поезд'
+        back: 'Вернуться в меню'
+      form:
+        submit: '%{action} поезд'
   welcome:
     index:
       title: 'Главное меню'
