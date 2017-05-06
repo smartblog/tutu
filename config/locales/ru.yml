@@ -2,11 +2,14 @@ ru:
   layouts:
     application:
       admin_panel: 'Панель администратора'
+      my_tickets: 'Мои билеты'
       sign_out: 'Выйти'
       login: 'Войти'
+      footer_text: '(с) 2017 Борис Стуков. Учебное приложение онлайн школы '
     admin:
       admin_panel: 'Панель администратора'
       sign_out: 'Выйти'
+      footer_text: '(с) 2017 Борис Стуков. Учебное приложение онлайн школы '
   common:
     show: 'Показать'
     back: 'Назад'
@@ -69,3 +72,10 @@ ru:
       list_routes: 'Маршруты'
       list_carriages: 'Вагоны'
       list_tickets: 'Билеты'
+  tickets:
+    index:
+      title: 'Мои билеты'
+      table_fio: 'ФИО пассажира'
+      table_passport: 'Паспорт пассажира'
+      table_start: 'Начальная станция'
+      table_end: 'Конечная станция'
