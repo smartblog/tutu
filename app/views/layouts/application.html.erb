@@ -52,6 +52,7 @@
               <% if current_user.admin? %>
                 <li><%= link_to t('.admin_panel'), welcome_index_path %></li>
               <% end %>
+              <li><%= link_to t('.my_tickets'), tickets_path %></li>
               <li><%= link_to t('.sign_out'), destroy_user_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to t('.login'), new_user_session_path %></li>
