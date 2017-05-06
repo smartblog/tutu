@@ -1,20 +1,16 @@
-<p>
-  <strong>Title:</strong>
-  <%= @route.title %>
-</p>
+<h1><%= t('.title') %>: <%= @route.title %></h1>
 
-<p>
-  <strong>Stations in route:</strong>
+<h3><%= t('.stations') %></h3>
   <% if @route.railway_stations.empty? %>
-    List empty
+    <p><%= t('.empty_stations') %></p>
   <% else %>
-    <table>
+    <table class="table table-striped">
       <thead>
         <tr>
-          <td width="100px">Title</td>
-          <td>Position</td>
-          <td>Arrive Time</td>
-          <td>Departure Time</td>
+          <th width="200px"><%= t('.table_title_station') %></th>
+          <th><%= t('.table_position') %></th>
+          <th><%= t('.table_arrive') %></th>
+          <th><%= t('.table_departure') %></th>
         </tr>
       </thead>
       <tbody>
@@ -46,8 +42,7 @@
   <% end %>
 </p>
 
-<p>
-  <strong>Trains with current route:</strong>
+<h3><%= t('.trains') %></h3>
   <% if @route.trains.empty? %>
     List empty
   <% else %>
@@ -59,5 +54,5 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_admin_route_path(@route) %> |
-<%= link_to 'Back', admin_routes_path %>
+<%= link_to t('common.edit'), edit_admin_route_path(@route) %> |
+<%= link_to t('common.back'), admin_routes_path %>

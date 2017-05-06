@@ -1,7 +1,13 @@
-<h1>Railway Application</h1>
+<h1><%= t('.title') %></h1>
 
-<p><%= link_to 'List Stations', admin_railway_stations_path %></p>
-<p><%= link_to 'List Trains', admin_trains_path %></p>
-<p><%= link_to 'List Routes', admin_routes_path %></p>
-<p><%= link_to 'List Carriages', admin_carriages_path %></p>
-<p><%= link_to 'List Tickets', admin_tickets_path %></p>
+<div class="row">
+  <div class="col-md-4">
+    <ul class="nav nav-pills nav-stacked">
+      <li><%= link_to t('.list_stations'), admin_railway_stations_path %></li>
+      <li><%= link_to t('.list_trains'), admin_trains_path %></li>
+      <li><%= link_to t('.list_routes'), admin_routes_path %></li>
+      <li><%= link_to t('.list_carriages'), admin_carriages_path %></li>
+      <li><%= link_to t('.list_tickets'), admin_tickets_path %></li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+ru:
+  layouts:
+    application:
+      admin_panel: 'Панель администратора'
+      sign_out: 'Выйти'
+      login: 'Войти'
+    admin:
+      admin_panel: 'Панель администратора'
+      sign_out: 'Выйти'
+  common:
+    show: 'Показать'
+    back: 'Назад'
+    edit: 'Изменить'
+    destroy: 'Удалить'
+    errors: 'При заполнении формы возникли ошибки'
+  admin:
+    railway_stations:
+      new:
+        title: 'Новая станция'
+      edit:
+        title: 'Редактирование станции'
+      show:
+        title: 'Станция'
+      index:
+        title: 'Список станций'
+        table_title: 'Название станции'
+        new: 'Новая станция'
+        back: 'Вернуться в меню'
+      form:
+        submit: '%{action} станцию'
+    trains:
+      new:
+        title: 'Новый поезд'
+      edit:
+        title: 'Редактирование поезда'
+      show:
+        title: 'Поезд'
+      index:
+        title: 'Список поездов'
+        table_number: 'Номер поезда'
+        new: 'Новый поезд'
+      form:
+        submit: '%{action} поезд'
+    routes:
+      new:
+        title: 'Новый маршрут'
+      edit:
+        title: 'Редактирование маршрута'
+      show:
+        title: 'Маршрут'
+        stations: 'Список станций в маршруте'
+        trains: 'Список поездов с маршрутом'
+        empty_stations: 'Список станций пуст'
+        table_title_station: 'Название станции'
+        table_position: 'Позиция'
+        table_arrive: 'Время прибытия'
+        table_departure: 'Время убытия'
+      index:
+        title: 'Список маршрутов'
+        table_title: 'Название маршрута'
+        new: 'Новый маршрут'
+      form:
+        submit: '%{action} маршрут'
+  welcome:
+    index:
+      title: 'Главное меню'
+      list_stations: 'Станции'
+      list_trains: 'Поезда'
+      list_routes: 'Маршруты'
+      list_carriages: 'Вагоны'
+      list_tickets: 'Билеты'
