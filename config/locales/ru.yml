@@ -97,3 +97,13 @@ ru:
       table_start: 'Начальная станция'
       table_end: 'Конечная станция'
       new: 'Купить билет'
+  searches:
+    show:
+      title: 'Поиск билета'
+      result: 'Результат поиска'
+      table_train: 'Номер поезда'
+      table_route: 'Маршрут поезда'
+      table_start_time: 'Время отбытия'
+      table_end_time: 'Время прибытия'
+      new: 'Купить билет'
+      search: 'Поиск'
