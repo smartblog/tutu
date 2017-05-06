@@ -38,9 +38,18 @@ ru:
         title: 'Редактирование поезда'
       show:
         title: 'Поезд'
+        table_number: 'Номер поезда'
+        table_route: 'Маршрут'
+        table_current_station: 'Текущая станция'
+        carriages_title: 'Состав вагонов'
+        carriages_empty: 'В составе поезда нет вагонов'
+        carriage_number: 'Номер вагона'
+        carriage_type: 'Тип вагона'
       index:
         title: 'Список поездов'
         table_number: 'Номер поезда'
+        table_route: 'Маршрут'
+        table_current_station: 'Текущая станция'
         new: 'Новый поезд'
       form:
         submit: '%{action} поезд'
