@@ -73,6 +73,14 @@ ru:
         new: 'Новый маршрут'
       form:
         submit: '%{action} маршрут'
+    tickets:
+      index:
+        title: 'Список всех билетов'
+        table_fio: 'ФИО пассажира'
+        table_passport: 'Паспорт пассажира'
+        table_start: 'Начальная станция'
+        table_end: 'Конечная станция'
+        new: 'Новый билет'
   welcome:
     index:
       title: 'Главное меню'
