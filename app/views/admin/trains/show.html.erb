@@ -1,61 +1,63 @@
 <h1><%= t('.title') %></h1>
 
-<p>
-  <strong>Number:</strong>
-  <%= @train.number %>
-</p>
-
-<p>
-  <strong>Current Station:</strong>
-  <% if @train.current_station.present? %>
-    <%= @train.current_station.title %>
-  <% else %>
-    Not station
-  <% end %>
-</p>
-
-<p>
-  <strong>Route:</strong>
-  <% if @train.route.present? %>
-    <%= @train.route.title %>
-  <% else %>
-    No routes
-  <% end %>
-</p>
-
-<p>
-  <%= link_to "Add Carriage", new_admin_train_carriage_path(@train) %>
-</p>
-
-<p>
-  <strong>Carriages:</strong>
-  <% if @train.carriages.empty? %>
-    List empty
-  <% else %>
-  <table>
-    <thead>
-      <tr>
-        <th>Number</th>
-        <th>Type</th>
-      </tr>
-    </thead>
-
+<div class="col-md-5">
+  <table class="table table-striped">
     <tbody>
-      <% @train.sort_carriages.each do |carriage| %>
-        <tr>
-          <td><%= link_to "#{carriage.number}", admin_carriage_path(carriage)%></td>
-          <td><%= carriage.type %></td>
-        </tr>
-      <% end %>
+      <tr>
+        <td><%= t('.table_number') %></td>
+        <td><%= @train.number %></td>
+      </tr>
+      <tr>
+        <td><%= t('.table_route') %></td>
+        <td>
+          <% if @train.route.present? %>
+            <%= @train.route.title %>
+          <% else %>
+            No routes
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td><%= t('.table_current_station') %></td>
+        <td>
+          <% if @train.current_station.present? %>
+            <%= @train.current_station.title %>
+          <% else %>
+            Not station
+          <% end %>
+        </td>
+      </tr>
     </tbody>
   </table>
+  <%= link_to t('common.edit'), edit_admin_train_path(@train), :class => "btn btn-primary" %>
+
+  <h3><%= t('.carriages_title') %></h3>
+  <span><%= link_to "Add Carriage", new_admin_train_carriage_path(@train), :class => "btn btn-primary" %></span>
+  <% if @train.carriages.empty? %>
+    <%= t('.carriages_empty') %>
+  <% else %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t('.carriage_number') %></th>
+          <th><%= t('.carriage_type') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @train.sort_carriages.each do |carriage| %>
+          <tr>
+            <td><%= link_to "#{carriage.number}", admin_carriage_path(carriage)%></td>
+            <td><%= carriage.type %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   <% end %>
-</p>
 
-<p>
-<strong>Total top seats places in CoupeCarriages:</strong>
-<%= @train.calculate_places('CoupeCarriage', :top_seats) %>
-</p>
+  <p>
+  <strong>Total top seats places in CoupeCarriages:</strong>
+  <%= @train.calculate_places('CoupeCarriage', :top_seats) %>
+  </p>
 
-<%= link_to 'Edit', edit_admin_train_path(@train) %> |
-<%= link_to 'Back', admin_trains_path %>
+  <%= link_to t('common.back'), admin_trains_path, :class => "btn btn-default" %>
+</div>

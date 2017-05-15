@@ -1,13 +1,13 @@
-<h1>All Tickets</h1>
+<h1><%= t('.title') %></h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>FIO</th>
-      <th>Passport</th>
-      <th>Begin station</th>
-      <th>End station</th>
+      <th>#</th>
+      <th><%= t('.table_fio') %></th>
+      <th><%= t('.table_passport') %></th>
+      <th><%= t('.table_start') %></th>
+      <th><%= t('.table_end') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,14 +20,13 @@
         <td><%= ticket.passport_number %></td>
         <td><%= ticket.begin_station.title %></td>
         <td><%= ticket.end_station.title %></td>
-        <td><%= link_to 'Show', admin_ticket_path(ticket) %></td>
-        <td><%= link_to 'Edit', edit_admin_ticket_path(ticket) %></td>
-        <td><%= link_to 'Destroy', [:admin, ticket], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('common.show'), admin_ticket_path(ticket) %></td>
+        <td><%= link_to t('common.edit'), edit_admin_ticket_path(ticket) %></td>
+        <td><%= link_to t('common.destroy'), [:admin, ticket], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-<%= link_to "New Ticket", new_admin_ticket_path %>
-<%= link_to 'Back to Main Page', welcome_index_path %>
+<%= link_to t('.new'), new_admin_ticket_path, :class => "btn btn-primary" %>
+<%= link_to t('common.back'), welcome_index_path, :class => "btn btn-default" %>

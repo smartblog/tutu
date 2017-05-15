@@ -52,8 +52,10 @@
               <% if current_user.admin? %>
                 <li><%= link_to t('.admin_panel'), welcome_index_path %></li>
               <% end %>
+              <li><%= link_to t('.my_tickets'), tickets_path %></li>
               <li><%= link_to t('.sign_out'), destroy_user_session_path, method: :delete %></li>
             <% else %>
+              <li><%= link_to t('.admin_panel'), welcome_index_path %></li>
               <li><%= link_to t('.login'), new_user_session_path %></li>
             <% end %>
           </ul>
@@ -70,7 +72,7 @@
       </div><!--/row-->
 
       <footer>
-        <p>(с) 2017 Boris Stukov. Education Project in online-school <%= link_to 'Thinknetica', 'http://thinknetica.com' %></p>
+        <p><%= t('.footer_text') %> <%= link_to 'Thinknetica', 'http://thinknetica.com' %></p>
       </footer>
 
     </div> <!-- /container -->

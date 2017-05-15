@@ -1,4 +1,4 @@
-<h1>Find Tickets</h1>
+<h1><%= t('.title') %></h1>
 
 <div class="row">
   <%= form_tag search_path do %>
@@ -9,17 +9,34 @@
       <%= collection_select :stations, :end_station_id, RailwayStation.all, :id, :title, {}, {:class=>'form-control'} %>
     </div>
     <div class="col-md-4">
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= submit_tag t('.search'), class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>
 
-<h2> Search Result </h2>
 <% if @trains %>
+  <h3><%= t('.result') %></h3>
   <% @trains.each do |train| %>
-    <p>
-    Train: <%= train.number %> | <%= train.route.title %> | <%= train.route.start_time.strftime("%H:%M") %> | <%= train.route.end_time.strftime("%H:%M") %>
-    <div class='btn btn-success'><%= link_to 'Buy Ticket', new_ticket_path(train_id: train.id, start_station_id: @start_station, end_station_id: @end_station) %></div>
-    </p>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t('.table_train') %></th>
+          <th><%= t('.table_route') %></th>
+          <th><%= t('.table_start_time') %></th>
+          <th><%= t('.table_end_time') %></th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><%= train.number %></td>
+          <td><%= train.route.title %></td>
+          <td><%= train.route.start_time.strftime("%H:%M") %></td>
+          <td><%= train.route.end_time.strftime("%H:%M") %></td>
+          <td><%= link_to 'Buy Ticket', new_ticket_path(train_id: train.id, start_station_id: @start_station, end_station_id: @end_station), class: "btn btn-success" %></td>
+        </tr>
+      </tbody>
+    </table>
   <% end %>
 <% end %>

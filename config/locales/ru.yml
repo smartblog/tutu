@@ -2,11 +2,14 @@ ru:
   layouts:
     application:
       admin_panel: 'Панель администратора'
+      my_tickets: 'Мои билеты'
       sign_out: 'Выйти'
       login: 'Войти'
+      footer_text: '(с) 2017 Борис Стуков. Учебное приложение онлайн школы '
     admin:
       admin_panel: 'Панель администратора'
       sign_out: 'Выйти'
+      footer_text: '(с) 2017 Борис Стуков. Учебное приложение онлайн школы '
   common:
     show: 'Показать'
     back: 'Назад'
@@ -35,9 +38,18 @@ ru:
         title: 'Редактирование поезда'
       show:
         title: 'Поезд'
+        table_number: 'Номер поезда'
+        table_route: 'Маршрут'
+        table_current_station: 'Текущая станция'
+        carriages_title: 'Состав вагонов'
+        carriages_empty: 'В составе поезда нет вагонов'
+        carriage_number: 'Номер вагона'
+        carriage_type: 'Тип вагона'
       index:
         title: 'Список поездов'
         table_number: 'Номер поезда'
+        table_route: 'Маршрут'
+        table_current_station: 'Текущая станция'
         new: 'Новый поезд'
       form:
         submit: '%{action} поезд'
@@ -61,6 +73,14 @@ ru:
         new: 'Новый маршрут'
       form:
         submit: '%{action} маршрут'
+    tickets:
+      index:
+        title: 'Список всех билетов'
+        table_fio: 'ФИО пассажира'
+        table_passport: 'Паспорт пассажира'
+        table_start: 'Начальная станция'
+        table_end: 'Конечная станция'
+        new: 'Новый билет'
   welcome:
     index:
       title: 'Главное меню'
@@ -69,3 +89,21 @@ ru:
       list_routes: 'Маршруты'
       list_carriages: 'Вагоны'
       list_tickets: 'Билеты'
+  tickets:
+    index:
+      title: 'Мои билеты'
+      table_fio: 'ФИО пассажира'
+      table_passport: 'Паспорт пассажира'
+      table_start: 'Начальная станция'
+      table_end: 'Конечная станция'
+      new: 'Купить билет'
+  searches:
+    show:
+      title: 'Поиск билета'
+      result: 'Результат поиска'
+      table_train: 'Номер поезда'
+      table_route: 'Маршрут поезда'
+      table_start_time: 'Время отбытия'
+      table_end_time: 'Время прибытия'
+      new: 'Купить билет'
+      search: 'Поиск'
