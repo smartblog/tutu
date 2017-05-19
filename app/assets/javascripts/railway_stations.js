@@ -1,10 +1,5 @@
 $(document).ready(function() {
-  $('a.edit_station').click(function(e) {
-    e.preventDefault();
-
-    var station_id;
-    var form;
-    var title;
+    var carriage_kind;
 
     station_id = $(this).data('stationId');
     form = $('#edit_railway_station_' + station_id);
@@ -20,5 +15,4 @@ $(document).ready(function() {
 
     form.toggle();
     title.toggle();
-  })
 });
